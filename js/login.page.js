@@ -4,10 +4,10 @@ $(document).ready(function () {
   $("#loginButton").on("click", function(e){
     e.preventDefault();
 
-    var email = $("#inputEmail").val();
+    var username = $("#inputUsername").val();
     var pw = $("#inputPassword").val();
 
-    SDK.login(email, pw, function(err, data){
+    SDK.login(username, pw, function(err, data){
 
       //On wrong credentials
       if(err) {
