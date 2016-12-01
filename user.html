@@ -43,8 +43,13 @@
             </nav>
 
 
-            <div class="page-header">
-                <h1>Se alle bøger</h1>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bøger</h3>
+                    </div>
+                    <div class="panel-body">
+
             </div>
             <table class="table">
                 <thead>
@@ -63,6 +68,36 @@
     </div>
 </div>
 
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Annoncer</h3>
+    </div>
+    <div class="panel-body">
+
+        <table class="table table-striped">
+            <thead>
+            <th>Isbn</th>
+            <th>Titel</th>
+            <th>Rating</th>
+            <th>Pris</th>
+
+            </thead>
+            <tbody id="addsTableBody">
+
+            </tbody>
+        </table>
+
+        <hr>
+        <button class="btn btn-success" data-toggle="modal" data-target="#newAddModal">
+            <span class="glyphicon glyphicon-plus"></span> Opret Annonce
+        </button>
+
+    </div>
+</div>
+
+</div>
+</div>
+
 <footer class="footer">
     <div class="container">
         <p class="text-muted">2016 © All rights reserved - Awesome Bookstore Inc.</p>
@@ -73,7 +108,7 @@
 <script src="lib/js/bootstrap.js"></script>
 <script src="js/sdk.js"></script>
 <script src="js/books.page.js"></script>
-
+<script src="js/user.page.js"></script>
 
 
 </body>

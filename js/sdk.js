@@ -69,6 +69,12 @@ var SDK = {
     },
   },
 
+  allAds: {
+    getAll: function (cb) {
+      SDK.request({method: "GET", url: "/getads"}, cb);
+    }
+  },
+
   logOut:function() {
     SDK.Storage.remove("tokenId");
     SDK.Storage.remove("userId");

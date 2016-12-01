@@ -24,3 +24,22 @@ $(document).ready(function () {
         });
 
     });
+
+    SDK.allAds.getAll(function(err, data){
+        if(err) throw err;
+
+        var $addsTableBody = $("#addsTableBody");
+        data.forEach(function (add, i) {
+
+            $addsTableBody.append(
+                "<tr>" +
+                "<td>" + add.isbn + "</td>" +
+                "<td>" + add.price  + "</td>" +
+                "<td>" + add.rating + "</td>" +
+                "<td>" + add.comment + "</td>" +
+                "</tr>");
+        });
+
+    });
+
+});
