@@ -14,7 +14,7 @@
 <body>
 
 
-<!-- New Book Modal -->
+<!-- Opret Bog model-->
 <div class="modal fade" id="newBookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -28,48 +28,29 @@
         <div class="row" >
           <div class="col-md-12">
             <div class="form-group">
-              <label class="control-label" for="bookTitle">Title</label>
-              <input class="form-control" id="bookTitle" type="text">
+              <label class="control-label" for="inputBooktitle">Title</label>
+              <input class="form-control" id="inputBooktitle" type="text">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label class="control-label" for="bookSubTitle">Under titel</label>
-              <input class="form-control" id="bookSubTitle" type="text">
+              <label class="control-label" for="inputBookedition">Udgave</label>
+              <input class="form-control" id="inputBookedition" type="text">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label" for="bookEdition">Udgave</label>
-              <input class="form-control" id="bookEdition" type="text">
+              <label class="control-label" for="inputBookauthor">Udgiver</label>
+              <input class="form-control" id="inputBookauthor" type="text">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label" for="bookPrice">Pris (kr)</label>
-              <input class="form-control" id="bookPrice" type="text">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="control-label" for="bookPageCount">Sideantal</label>
-              <input class="form-control" id="bookPageCount" type="text">
+              <label class="control-label" for="inputBookisbn">Isbn</label>
+              <input class="form-control" id="InputBookisbn" type="text">
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label" id="publishersRadio">Forlag</label>
-              <!-- Values set by jQuery -->
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label" id="authorsCheckbox">Forfatter(e)</label>
-              <!-- Values set by jQuery -->
-            </div>
-          </div>
 
         </div>
 
@@ -92,7 +73,6 @@
         <h4 class="modal-title">New user title</h4>
       </div>
       <div class="modal-body">
-        ...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -126,7 +106,7 @@
               <li><a>Velkommen til Boghandlen, <span id="currentUserName"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a id="logOutLink">Logud</a></li>
+              <li><a href="index.html">Logud</a></li>
             </ul>
           </div>
         </div>
@@ -148,8 +128,8 @@
             <th>Titel</th>
             <th>Udgave</th>
             <th>Udgiver</th>
-            <th>ISbn</th>
-
+            <th>Isbn</th>
+            <th> Slet</th>
             </thead>
             <tbody id="booksTableBody">
 
@@ -158,7 +138,7 @@
 
           <hr>
           <!-- Button trigger modal -->
-          <button class="btn btn-success" id="addNewBookButton">
+          <button class="btn btn-success" id="addNewBookButton" data-toggle="modal" data-target="#newBookModal">
             <span class="glyphicon glyphicon-plus"></span> Opret ny bog
           </button>
 
@@ -177,6 +157,10 @@
             <th>Brugernavn</th>
             <th>Email</th>
             <th>ID</th>
+            <th>Ok</th>
+            <th>OK</th>
+            <th>OK</th>
+            <th>OK</th>
             </thead>
             <tbody id="usersTableBody">
 

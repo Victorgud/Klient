@@ -14,11 +14,20 @@ $(document).ready(function () {
         return $("#loginForm").find(".form-group").addClass("has-error");
       }
 
+     // SDK.Storage.persist("user", data);
+
       //Login OK!
       $("#loginForm").find(".form-group").addClass("has-success");
 
-      window.location.href = "admin.html";
+      if (data.type === 1) {
 
+        window.location.href = "admin.html";
+      }
+      else
+      {
+        window.location.href = "user.html";
+
+      }
     });
 
   });

@@ -14,108 +14,76 @@ $(document).ready(function () {
         "<td>" + book.edition + "</td>" +
         "<td>" + book.author + "</td>" +
         "<td>" + book.isbn + "</td>" +
+        "<td>" +  "</td>" +
         "</tr>");
     });
 
   });
 
   //Fires on page-load
-  SDK.User.getAll(function (err, users) {
+  SDK.User.getAll(function (err, data) {
     if (err) throw err;
 
     var $usersTableBody = $("#usersTableBody");
-    users.forEach(function (user) {
+    data.forEach(function (users) {
 
       $usersTableBody.append(
         "<tr>" +
-        "<td>" + user.firstName + " " + user.lastName + "</td>" +
-        "<td>" + user.username + "</td>" +
-        "<td>" + user.email + "</td>" +
-        "<td>" + user.id + "</td>" +
+        "<td>" + users.userId + "</td>" +
+        "<td>" + users.username + "</td>" +
+        "<td>" + users.password + "</td>" +
+        "<td>" + users.email + "</td>" +
+        "<td>" + users.phonenumber + "</td>" +
+        "<td>" + users.address+ "</td>" +
+        "<td>" + users.mobilepay + "</td>" +
+        "<td>" + users.cash + "</td>" +
+        "<td>" + users.transfer + "</td>" +
         "</tr>");
     });
 
   });
 
-  var currentUser = SDK.User.current();
-  $("#currentUserName").text(currentUser.firstName +  " " + currentUser.lastName);
+  //var currentUser = SDK.User.current();
+  //$("#currentUserName").text(currentUser.firstName +  " " + currentUser.lastName);
 
   /**
    * Add a new Book
    */
-  $("#addNewBookButton").on("click", function () {
+  $("#createBookButton").on("click", function () {
+    $("#newBookModal").css("display","block");
 
-    //Show modal
-    $('#newBookModal').modal('show');
+      var $isbn = parseInt($("#InputBookisbn").val())
 
-    //Fetch publishers, and set to DOM
-    SDK.Publisher.getAll(function (err, publishers) {
-      if (err) throw err;
+      var $title = $("#inputBooktitle").val()
 
-      var $publishersRadio = $("#publishersRadio");
-      publishers.forEach(function (publisher, i) {
+      var $edition = $("#inputBookedition").val()
 
-        $publishersRadio.append(
-          '<div class="radio">' +
-            '<label>' +
-              '<input type="radio" name="publisherRadios" id="optionsRadios' + i + '" value="' + publisher.id + '">' +
-              publisher.name +
-            '</label>' +
-          '</div>'
-        );
+      var $author = ($("#inputBookauthor").val())
 
-      });
-
-    });
-
-    //Fetch authors, and set to DOM
-    SDK.Author.getAll(function(err, authors){
-      if (err) throw err;
-
-      var $authorsCheckbox = $("#authorsCheckbox");
-      authors.forEach(function(author, i){
-
-        $authorsCheckbox.append(
-          '<div class="checkbox">' +
-            '<label>' +
-              '<input type="checkbox" value="' + author.id + '">' +
-              author.firstName + ' ' + author.lastName +
-            '</label>' +
-          '</div>'
-        );
-
-      });
-
-    });
-
-    $("#createBookButton").on("click", function(){
 
       //Create JSON object
-      var book = {
-        title: $("#bookTitle").val(),
-        subtitle: $("#bookSubTitle").val(),
-        pageCount: $("#bookPageCount").val(),
-        edition: $("#bookEdition").val(),
-        price: $("#bookPrice").val(),
-        authorIds: [],
-        publisherId: $("input[name=publisherRadios]:checked").val()
+      var Book = {
+
+        title: $title,
+        isbn: $isbn,
+        edition: $edition,
+        author: $author,
+
       };
+//Create Book
+      SDK.Book.create(Book, function (err, data) {
+        if (err) throw err;
 
-      //Fetch selected authors
-      $('#authorsCheckbox').find('input:checked').each(function() {
-        book.authorIds.push($(this).val());
+        window.alert("Bog oprettet");
+
+        window.location.href = "admin.html";
       });
-
-      //Create book
-      SDK.Book.create(book, function(err, data){
-        if(err) throw err;
-
-        $("#newBookModal").modal("hide");
-      });
-
     });
 
   });
+
+
+
 
   /**
    * Add a new User
@@ -130,4 +98,4 @@ $(document).ready(function () {
   });
 
 
-});
+
