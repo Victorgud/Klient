@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 
 
-        var $username = $("#inputUsername").val()
+            var $username = $("#inputUsername").val()
 
             var $password = $("#inputPassword").val()
 
@@ -36,11 +36,7 @@ $(document).ready(function () {
 
         //Create JSON object
         var user = {
-            // username: $("#inputUsername").val(),
-            // password: $("#inputPassword").val(),
-            // email: $("#inputEmail").val(),
-            // phonenumber: parseInt($("#inputPhonenumber").val()),
-            // address: $("#inputAddress").val(),
+
             username: $username,
             password: $password,
             phonenumber: $phonenumber,

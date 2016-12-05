@@ -50,9 +50,9 @@ var SDK = {
     create: function (data, cb) {
       SDK.request({method: "POST", url: "/createbook", data: data}, cb);
     },
-    /*delete: function (data, cb) {
-      SDK.request({method: "POST", url: "/deletebook", data: data}, cb);*/
-
+    delete: function (data, cb) {
+      SDK.request({method: "POST", url: "/deletebook", data: data}, cb);
+    }
 
   },
 
@@ -67,12 +67,20 @@ var SDK = {
       SDK.request({method: "POST", url: "/createuser", data: data}, cb);
 
     },
+
+    delete: function(data,cb) {
+      SDK.request({method: "POST", url: "/deleteuseradmin", data: data}, cb);
+    }
   },
 
   allAds: {
     getAll: function (cb) {
       SDK.request({method: "GET", url: "/getads"}, cb);
-    }
+    },
+    create: function (data, cb) {
+      SDK.request({method: "POST", url: "/createad", data: data}, cb);
+
+    },
   },
 
   logOut:function() {

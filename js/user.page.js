@@ -23,10 +23,22 @@ $(document).ready(function () {
                 "</tr>");
         });
 
+        $(".deleteBookButton").on("click", function(){
+
+            var $button = $(this);
+
+            var postRequest = {
+                isbn:$button.data("bookid")
+            };
+
+            console.log(postRequest);
+
+        });
+
     });
 
-    SDK.allAds.getAll(function(err, data){
-        if(err) throw err;
+    SDK.allAds.getAll(function (err, data) {
+        if (err) throw err;
 
         var $addsTableBody = $("#addsTableBody");
         data.forEach(function (add, i) {
@@ -34,12 +46,47 @@ $(document).ready(function () {
             $addsTableBody.append(
                 "<tr>" +
                 "<td>" + add.isbn + "</td>" +
-                "<td>" + add.price  + "</td>" +
+                "<td>" + add.price + "</td>" +
                 "<td>" + add.rating + "</td>" +
                 "<td>" + add.comment + "</td>" +
                 "</tr>");
         });
 
+    });
+
+
+
+    $("#AdNewButton").on("click", function () {
+
+
+        $("#newAdModal").css("display", "block");
+
+        var $isbn = parseInt($("#inputAdisbn").val())
+
+        var $price = parseInt($("#inputAdprice").val())
+
+        var $rating = parseInt($("#inputAdrating").val())
+
+        var $comment = ($("#inputAdcomment").val())
+
+
+        //Create JSON object
+        var Ad = {
+
+            isbn: $isbn,
+            price: $price,
+            rating: $rating,
+            comment: $comment,
+
+        };
+//Create AD
+        SDK.allAds.create(Ad, function (err) {
+            if (err) throw err;
+
+            window.alert("Annonce oprettet");
+
+            window.location.href = "user.html";
+        });
     });
 
 });

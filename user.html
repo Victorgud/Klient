@@ -87,16 +87,72 @@
             </tbody>
         </table>
 
+
+
         <hr>
-        <button class="btn btn-success" data-toggle="modal" data-target="#newAddModal">
-            <span class="glyphicon glyphicon-plus"></span> Opret Annonce
+        <fieldset>
+        <div class="modal fade" id="newAdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Opret ny Annonce</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row" >
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputAdisbn">Isbn</label>
+                                    <input class="form-control" id="inputAdisbn" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputAdprice">Price</label>
+                                    <input class="form-control" id="inputAdprice" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputAdrating">Rating</label>
+                                    <input class="form-control" id="inputAdrating" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputAdcomment">comment</label>
+                                    <input class="form-control" id="inputAdcomment" type="text">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Luk</button>
+                        <button type="button" class="btn btn-success" id="AdNewButton">Opret ny Annonce</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-success" id="AdNewButton" data-toggle="modal" data-target="#newAdModal">
+            <span class="glyphicon glyphicon-plus"></span> Opret ny Annonce
         </button>
+
+        </fieldset>
 
     </div>
 </div>
 
 </div>
 </div>
+<
+// FIND UD AF HVORFOR DU IKEK KAN LAVE DEN SKIDE ANNONCE IND HER HTML!!!
+
 
 <footer class="footer">
     <div class="container">
