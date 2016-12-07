@@ -70,6 +70,9 @@ var SDK = {
 
     delete: function(data,cb) {
       SDK.request({method: "POST", url: "/deleteuseradmin", data: data}, cb);
+    },
+    update: function(data,cb){
+      SDK.request({method: "POST", url: "/updateuser", data: data}, cb);
     }
   },
 
@@ -81,6 +84,23 @@ var SDK = {
       SDK.request({method: "POST", url: "/createad", data: data}, cb);
 
     },
+
+    reserve: function (data, cb) {
+      SDK.request({method: "POST", url: "/reservead", data: data}, cb);
+    },
+    myads: function (cb) {
+      SDK.request({method: "GET", url: "/getmyads"}, cb);
+    },
+    myreservations: function(cb) {
+      SDK.request({method: "GET", url: "/getmyreservations"}, cb);
+
+    },
+    deletereservation: function (data, cb) {
+      SDK.request({method: "POST", url: "/deletereservation", data: data}, cb);
+    },
+    unlockreservation: function (data, cb) {
+      SDK.request({method: "POST", url: "/unlockad", data: data}, cb);
+    }
   },
 
   logOut:function() {

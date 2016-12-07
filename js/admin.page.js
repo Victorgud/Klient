@@ -46,13 +46,8 @@ $(document).ready(function () {
         "<tr>" +
         "<td>" + users.userId + "</td>" +
         "<td>" + users.username + "</td>" +
-        "<td>" + users.password + "</td>" +
         "<td>" + users.email + "</td>" +
         "<td>" + users.phonenumber + "</td>" +
-        "<td>" + users.address+ "</td>" +
-        "<td>" + users.mobilepay + "</td>" +
-        "<td>" + users.cash + "</td>" +
-        "<td>" + users.transfer + "</td>" +
         "<td><button class='deleteUserButton' data-userId=" + users.userId +">Slet</Button></td>" +
         "</tr>");
     });
