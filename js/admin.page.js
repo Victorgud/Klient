@@ -14,25 +14,10 @@ $(document).ready(function () {
         "<td>" + book.edition + "</td>" +
         "<td>" + book.author + "</td>" +
         "<td>" + book.isbn + "</td>" +
-        "<td>" + "<button class='deleteBookButton' data-bookid='" + book.isbn +"' type='button'>Slet</Button>" + "</td>" +
         "</tr>");
     });
 
-    $(".deleteBookButton").on("click", function(){
 
-      var $deleteBook = $(this);
-
-      var bookId = {
-        idBook:$deleteBook.data("bookid")
-      };
-
-      SDK.Book.delete(bookId, function (err) {
-        if (err) throw JSON.stringify(err);
-        location.reload();
-
-      })
-
-  });
   });
 
   //Fires on page-load

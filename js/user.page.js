@@ -172,21 +172,21 @@ SDK.allAds.myads(function (err, data) {
             "<td>" + ad.price + "</td>" +
             "<td>" + ad.rating + "</td>" +
             "<td>" + ad.comment + "</td>" +
-            "<td><button class='reserveAdButton' data-adId=" + ad.adId + ">Reserver</Button></td>" +
+            "<td><button class='deleteAdButton' data-adId=" + ad.adId + ">Slet Annonce</Button></td>" +
             "<td><button class='unlockAdButton' data-adId=" + ad.adId + ">Frigiv</Button></td>" +
             "</tr>");
     });
 
-    $(".reserveAdButton").on("click", function () {
+    $(".deleteAdButton").on("click", function () {
 
-        var $reserveAd = $(this);
+        var $deleteAd = $(this);
 
         var adId = {
-            id: $reserveAd.data("adid")
+            id: $deleteAd.data("adid")
         };
 
 
-        SDK.allAds.myads(adId, function (err) {
+        SDK.allAds.delete(adId, function (err) {
             if (err) throw JSON.stringify(err);
             location.reload();
         });

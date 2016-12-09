@@ -60,9 +60,9 @@ var SDK = {
     getAll: function (cb) {
       SDK.request({method: "GET", url: "/getusers"}, cb);
     },
-   current: function () {
-      return SDK.Storage.load("user");
-    },
+  // current: function () {
+    //  return SDK.Storage.load("user");
+    //},
     create: function (data, cb) {
       SDK.request({method: "POST", url: "/createuser", data: data}, cb);
 
@@ -83,6 +83,9 @@ var SDK = {
     create: function (data, cb) {
       SDK.request({method: "POST", url: "/createad", data: data}, cb);
 
+    },
+    delete: function(data,cb){
+      SDK.request({method: "POST", url: "/deletead", data: data}, cb);
     },
 
     reserve: function (data, cb) {
