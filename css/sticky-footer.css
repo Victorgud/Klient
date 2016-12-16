@@ -7,6 +7,8 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    font-family: "Times New Roman";
+    background-image: url("http://www.bipnational.net/Portals/_default/Skins/BIPSkin/backgrounds/Red/11_image.jpg");
 }
 .footer {
     position: absolute;
@@ -18,4 +20,8 @@ body {
 }
 .container .text-muted {
     margin: 20px 0;
+}
+
+.footer{
+    background: rgba(255, 255, 255, 0.2);
 }

@@ -6,7 +6,7 @@
  */
 $(document).ready(function () {
 
-    //Fires on page-load
+    // Bøger hentes
     SDK.Book.getAll(function (err, data) {
         if (err) throw err;
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
                 "<td>" + book.isbn + "</td>" +
                 "</tr>");
         });
-
+// Bøges kan slette her
         $(".deleteBookButton").on("click", function () {
 
             var $button = $(this);
@@ -36,7 +36,7 @@ $(document).ready(function () {
         });
 
     });
-
+/// Annoncer hentes
     SDK.allAds.getAll(function (err, data) {
         if (err) throw err;
 
@@ -51,6 +51,7 @@ $(document).ready(function () {
                 "<td><button class='reserveAdButton' data-adId=" + ad.adId + ">Reserver</Button></td>" +
                 "</tr>");
         });
+// Reserver Annoncer
 
         $(".reserveAdButton").on("click", function () {
 
@@ -68,7 +69,7 @@ $(document).ready(function () {
         });
     });
 
-
+// Opret ny Annonce
     $("#AdNewButton").on("click", function () {
 
 
@@ -83,7 +84,7 @@ $(document).ready(function () {
         var $comment = ($("#inputAdcomment").val())
 
 
-        //Create JSON object
+        //Creater JSON object
         var Ad = {
 
             isbn: $isbn,
@@ -104,6 +105,7 @@ $(document).ready(function () {
 
 });
 
+// Opdatering af brugers oplysninger
 $("#updateUserButton").on("click", function () {
 
 
@@ -159,7 +161,7 @@ $("#updateUserButton").on("click", function () {
     });
 });
 
-
+// Henter Brugerens egne annoncer
 SDK.allAds.myads(function (err, data) {
     if (err) throw err;
 
@@ -177,6 +179,7 @@ SDK.allAds.myads(function (err, data) {
             "</tr>");
     });
 
+    // Slet annonce
     $(".deleteAdButton").on("click", function () {
 
         var $deleteAd = $(this);
@@ -192,7 +195,7 @@ SDK.allAds.myads(function (err, data) {
         });
     });
 
-
+// Frigiv Annonce
 $(".unlockAdButton").on("click", function () {
 
     var $unlockAd = $(this);
@@ -209,7 +212,7 @@ $(".unlockAdButton").on("click", function () {
 });
 });
 
-
+// Hent reservationer
 SDK.allAds.myreservations(function (err, data) {
     if (err) throw err;
 
@@ -226,7 +229,7 @@ SDK.allAds.myreservations(function (err, data) {
             "<td><button class='deleteReservationAdButton' data-adId=" + ad.adId + ">Slet reservation</Button></td>" +
             "</tr>");
     });
-
+// Slet reservationer
     $(".deleteReservationAdButton").on("click", function () {
 
         var $deleteReservation = $(this);

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //Fires on page-load
+    // vis Bøger
     SDK.Book.getAll(function (err, data) {
         if (err) throw err;
 

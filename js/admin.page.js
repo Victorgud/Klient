@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  //Fires on page-load
+  // Vis Bøger
   SDK.Book.getAll(function (err, data) {
     if (err) throw err;
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
   });
 
-  //Fires on page-load
+  // Vis Brugere
   SDK.User.getAll(function (err, data) {
     if (err) throw err;
 
@@ -37,6 +37,7 @@ $(document).ready(function () {
         "</tr>");
     });
 
+    // Slet brugere
     $(".deleteUserButton").on("click", function(){
 
       var $deleteUser = $(this);
@@ -54,8 +55,6 @@ $(document).ready(function () {
     });
   });
 
-  //var currentUser = SDK.User.current();
-  //$("#currentUserName").text(currentUser.firstName +  " " + currentUser.lastName);
 
   /**
    * Add a new Book
@@ -74,7 +73,7 @@ $(document).ready(function () {
       var $author = ($("#inputBookauthor").val())
 
 
-      //Create JSON object
+      //Creater JSON object
       var Book = {
 
         title: $title,
@@ -83,7 +82,7 @@ $(document).ready(function () {
         author: $author,
 
       };
-//Create Book
+// Opret bog
       SDK.Book.create(Book, function (err, data) {
         if (err) throw err;
 

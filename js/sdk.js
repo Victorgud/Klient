@@ -42,7 +42,7 @@ var SDK = {
 
     });
   },
-
+// Bog SDK
   Book: {
     getAll: function (cb) {
       SDK.request({method: "GET", url: "/getbooks"}, cb);
@@ -55,7 +55,7 @@ var SDK = {
     }
 
   },
-
+// User SDK
   User: {
     getAll: function (cb) {
       SDK.request({method: "GET", url: "/getusers"}, cb);
@@ -75,7 +75,7 @@ var SDK = {
       SDK.request({method: "POST", url: "/updateuser", data: data}, cb);
     }
   },
-
+// Annoncer SDK
   allAds: {
     getAll: function (cb) {
       SDK.request({method: "GET", url: "/getads"}, cb);
@@ -105,6 +105,8 @@ var SDK = {
       SDK.request({method: "POST", url: "/unlockad", data: data}, cb);
     }
   },
+
+
 
   logOut:function() {
     SDK.Storage.remove("tokenId");

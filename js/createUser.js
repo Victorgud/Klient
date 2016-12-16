@@ -1,6 +1,8 @@
 
 $(document).ready(function () {
 
+    // Create user
+
     $("#createUserButton").on("click", function () {
 
 
